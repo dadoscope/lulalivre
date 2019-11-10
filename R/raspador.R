@@ -6,10 +6,10 @@ library(dplyr)
 library(ggplot2)
 library(lubridate)
 
-setwd("/home/cnovaes/Downloads/lulalivre")
+setwd("/Users/isiscosta/RScript/lulalivre")
 data <- system("date +\"%Y%m%d%H%M\"",intern=TRUE) 
-termos <- c("Lula","Lula","Lula","Lula","STF","STF","STF","STF")
-lang <- c("pt-br","es","en","pt","pt-br","es","en","pt")
+termos <- c("Lula","Lula","Lula","Lula","Lula")
+lang <- c("pt-br","es","en","pt","fr")
 
 token <- create_token(
    app = "my_twitter_research_app",
@@ -21,7 +21,7 @@ token <- create_token(
 
 for(i in 1:length(termos)){
    termo <- termos[i]
-   tweets <- search_tweets(termo, n = 2000, type="popular",retryonratelimit = TRUE,lang=lang[i])
+   tweets <- search_tweets(termo, n = 5000, type="popular",retryonratelimit = TRUE,lang=lang[i])
    tweets$termo <- rep(termo, nrow(tweets));
-   saveRDS(tweets, file = paste0("data/tweets_",termo,"_",lang[i],"_",data,".rds"))
+   saveRDS(tweets, file = paste0("data/tweets2_",termo,"_",lang[i],"_",data,".rds"))
 }
