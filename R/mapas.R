@@ -1,0 +1,4 @@
+source("analise.R")
+countries_es <- df %>% filter(lang == "es") %>% mutate(location = case_when(location == "Brasília, DF" ~ "Brasil", location == "Barcelona, España" ~ "Espanha", location == "Caracas, Venezuela" ~ "Venezuela", location == "Caracas" ~ "Venezuela", location == "Ciudad Autónoma de Buenos Aires, Argentina" ~ "Argentina",location == "Ciudad Autónoma de Buenos Aires" ~ "Argentina", location == "Ciudad Autónoma de Buenos Aire" ~ "Argentina", location == "Buenos Aires, Argentina" ~ "Argentina",location == "Bogotá, Colombia" ~ "Colombia",location == "Santa Fe - Argentina" ~ "Argentina",location == "Lima, Peru" ~ "Peru",location == "Lima, Perú" ~ "Peru",location == "SP, Brazil" ~ "Brasil",location == "Sao Paulo, Brazil" ~ "Brasil", location == "Montevideo, Uruguay" ~ "Uruguay",location == "La Habana, Cuba" ~ "Cuba",TRUE ~ location)) %>% count(location) %>% tail(20)
+countries_es <- countries_es[-c(1,10,12,16),]
+
