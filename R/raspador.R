@@ -6,7 +6,7 @@ library(dplyr)
 library(ggplot2)
 library(lubridate)
 
-setwd("/Users/isiscosta/RScript/lulalivre")
+setwd("~/RScript/lulalivre")
 data <- system("date +\"%Y%m%d%H%M\"",intern=TRUE) 
 termos <- c("Lula","Lula","Lula","Lula","Lula")
 lang <- c("pt-br","es","en","pt","fr")
